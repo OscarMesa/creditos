@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-        <meta name="language" content="en" />
+        <meta name="language" content="es" />
 
         <!-- blueprint CSS framework -->
 
@@ -12,35 +12,6 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
         <!--Ionicons--> 
         <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" />
-
-
-        <?php
-        $cs = Yii::app()->clientScript;
-        $themePath = Yii::app()->theme->baseUrl;
-
-        /**
-         * StyleSHeets
-         */
-        $cs
-                ->registerCssFile($themePath . '/assets/css/bootstrap.css')
-                ->registerCssFile($themePath . '/assets/css/bootstrap-theme.css');
-
-        /**
-         * JavaScripts
-         */
-        $cs
-                ->registerCoreScript('jquery.ui', CClientScript::POS_END)
-                ->registerScriptFile($themePath . '/assets/js/bootstrap.min.js', CClientScript::POS_END)
-                ->registerScript('tooltip', "$('[data-toggle=\"tooltip\"]').tooltip();
-        $('[data-toggle=\"popover\"]').tooltip()"
-                        , CClientScript::POS_READY);
-        ?>
-        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!--[if lt IE 9]>
-            <script src="<?php echo Yii::app()->theme->baseUrl ?>/assets/js/html5shiv.js"></script>
-            <script src="<?php echo Yii::app()->theme->baseUrl ?>/assets/js/respond.min.js"></script>
-        <![endif]-->  
-
 
 
 
@@ -65,7 +36,8 @@ $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/datepicker/bootstrap
 $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/iCheck/icheck.min.js',CClientScript::POS_END);
 $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/slimScroll/jquery.slimscroll.min.js',CClientScript::POS_END);
 $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/chartjs/Chart.min.js',CClientScript::POS_END);
-//        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/pages/dashboard2.js');
+//        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/pages/dashboard.js');
+        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/pages/dashboard2.js');
 $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/demo.js',CClientScript::POS_END);
 ?>
 

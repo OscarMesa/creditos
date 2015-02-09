@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'codeudor':
  * @property string $cedula_cliente
  * @property string $cedula_codeudor
+ * @property string $id
  *
  * The followings are the available model relations:
  * @property Cliente $cedulaCliente
@@ -32,7 +33,7 @@ class Codeudor extends CActiveRecord
 			array('cedula_cliente, cedula_codeudor', 'required'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('cedula_cliente, cedula_codeudor', 'safe', 'on'=>'search'),
+			array('cedula_cliente, cedula_codeudor, id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -57,6 +58,7 @@ class Codeudor extends CActiveRecord
 		return array(
 			'cedula_cliente' => 'Cedula Cliente',
 			'cedula_codeudor' => 'Cedula Codeudor',
+			'id' => 'ID',
 		);
 	}
 
@@ -80,6 +82,7 @@ class Codeudor extends CActiveRecord
 
 		$criteria->compare('cedula_cliente',$this->cedula_cliente,true);
 		$criteria->compare('cedula_codeudor',$this->cedula_codeudor,true);
+		$criteria->compare('id',$this->id,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -16,6 +16,7 @@ $(function () {
   //-----------------------
 
   // Get context with jQuery - using jQuery's .get() method.
+  if($("#salesChart").length>0){
   var salesChartCanvas = $("#salesChart").get(0).getContext("2d");
   // This will get the first returned node in the jQuery collection.
   var salesChart = new Chart(salesChartCanvas);
@@ -87,11 +88,12 @@ $(function () {
 
   //Create the line chart
   salesChart.Line(salesChartData, salesChartOptions);
-
+  }
   //---------------------------
   //- END MONTHLY SALES CHART -
   //---------------------------
 
+if($("#salesChart").length>0){
   //-------------
   //- PIE CHART -
   //-------------
@@ -166,7 +168,7 @@ $(function () {
   //-----------------
   //- END PIE CHART -
   //-----------------
-
+  }
   /* jVector Maps
    * ------------
    * Create a world map with markers
