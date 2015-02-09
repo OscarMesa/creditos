@@ -2,9 +2,14 @@
 
 class SiteController extends Controller
 {
+    public $layout='//layouts/main';
 	/**
 	 * Declares class-based actions.
 	 */
+        public function filters()
+        {
+           return array(array('CrugeAccessControlFilter'));
+        }
 	public function actions()
 	{
 		return array(
