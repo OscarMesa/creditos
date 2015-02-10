@@ -51,6 +51,8 @@ return array(
                 // lee mas abajo respecto a 'Encriptando las claves'
                 //
                 'useEncryptedPassword' => false,
+            
+                'defaultSessionFilter'=>'application.components.MiSesionCruge',
 
                 // Algoritmo de la función hash que deseas usar
                 // Los valores admitidos están en: http://www.php.net/manual/en/function.hash-algos.php

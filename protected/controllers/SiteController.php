@@ -34,7 +34,11 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
+            if(Yii::app()->user->isSuperAdmin)
 		$this->render('index');
+            else {
+                Yii::app()->getController()->redirect(Yii::app()->user->ui->loginUrl);
+            }
 	}
 
 	/**

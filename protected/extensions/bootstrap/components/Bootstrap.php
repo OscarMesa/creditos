@@ -53,7 +53,7 @@ class Bootstrap extends CApplicationComponent
 	 * @var boolean Whether to register the Bootstrap core CSS (bootstrap.min.css).
 	 * Defaults to true.
 	 */
-	public $bootstrapCss = true;
+	public $bootstrapCss = false;
 
 	/**
 	 * @var boolean whether to register the Bootstrap responsive CSS (bootstrap-responsive.min.css).

@@ -216,7 +216,7 @@
                         <li class="user-header">
                             <img src="themes/credito/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
                             <p>
-                                Alexander Pierce - Web Developer
+                                <?php echo Yii::app()->user->name;?>
                                 <small>Member since Nov. 2012</small>
                             </p>
                         </li>
@@ -237,9 +237,11 @@
                             <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
+                            <?php if(!Yii::app()->user->isGuest){?>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="<?php echo Yii::app()->user->ui->logoutUrl; ?>" class="btn btn-default btn-flat">Salir</a>
                             </div>
+                            <?php }?>
                         </li>
                     </ul>
                 </li>
@@ -330,7 +332,7 @@
             <?php if(Yii::app()->user->isSuperAdmin){?>
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-table"></i> <span>Tables</span>
+                    <i class="fa fa-table"></i> <span>Usuarios</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
                 <ul class="treeview-menu">
