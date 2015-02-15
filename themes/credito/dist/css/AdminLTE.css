@@ -5339,3 +5339,8 @@ Gradient Background colors
   opacity: 1;
   filter: alpha(opacity=100);
 }
+
+.frm-select2{
+    width:540px;
+    display:block
+}

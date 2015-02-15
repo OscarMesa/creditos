@@ -1,32 +1,31 @@
 <?php
 
 /**
- * This is the model class for table "informacion_laboral".
+ * This is the model class for table "v_cliente".
  *
- * The followings are the available columns in table 'informacion_laboral':
- * @property string $id
- * @property string $cliente
- * @property string $direccion
+ * The followings are the available columns in table 'v_cliente':
+ * @property string $cedula
+ * @property string $nombres
+ * @property string $apellidos
  * @property string $telefono
+ * @property string $correo
  * @property string $celular
- * @property string $cargo
- * @property double $salario
- * @property string $tiempo_laborado
- * @property string $contrato
- * @property string $nombre_compania
- *
- * The followings are the available model relations:
- * @property Cliente $cliente0
- * @property Cargos $cargo0
+ * @property string $direccion
+ * @property boolean $solo_codeudor
+ * @property string $estado_cliente
+ * @property string $pension
+ * @property string $tp_vinculacion_eps
+ * @property string $eps
+ * @property string $nombre_completo
  */
-class InformacionLaboral extends CActiveRecord
+class Vcliente extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'informacion_laboral';
+		return 'v_cliente';
 	}
 
 	/**
@@ -37,14 +36,13 @@ class InformacionLaboral extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('cliente, cargo, nombre_compania', 'required'),
-			array('salario', 'numerical'),
-			array('direccion, telefono, celular', 'length', 'max'=>80),
-			array('nombre_compania', 'length', 'max'=>100),
-			array('tiempo_laborado, contrato', 'safe'),
+			array('nombres, apellidos', 'length', 'max'=>80),
+			array('telefono, celular', 'length', 'max'=>30),
+			array('correo, direccion', 'length', 'max'=>50),
+			array('cedula, solo_codeudor, estado_cliente, pension, tp_vinculacion_eps, eps, nombre_completo', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, cliente, direccion, telefono, celular, cargo, salario, tiempo_laborado, contrato, nombre_compania', 'safe', 'on'=>'search'),
+			array('cedula, nombres, apellidos, telefono, correo, celular, direccion, solo_codeudor, estado_cliente, pension, tp_vinculacion_eps, eps, nombre_completo', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,8 +54,6 @@ class InformacionLaboral extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'cliente0' => array(self::BELONGS_TO, 'Cliente', 'cliente'),
-			'cargo0' => array(self::BELONGS_TO, 'Cargos', 'cargo'),
 		);
 	}
 
@@ -67,16 +63,19 @@ class InformacionLaboral extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'cliente' => 'Cliente',
-			'direccion' => 'Direccion',
+			'cedula' => 'Cedula',
+			'nombres' => 'Nombres',
+			'apellidos' => 'Apellidos',
 			'telefono' => 'Telefono',
+			'correo' => 'Correo',
 			'celular' => 'Celular',
-			'cargo' => 'Cargo',
-			'salario' => 'Salario',
-			'tiempo_laborado' => 'Tiempo Laborado',
-			'contrato' => 'Contrato',
-			'nombre_compania' => 'Nombre Compania',
+			'direccion' => 'Direccion',
+			'solo_codeudor' => 'Solo Codeudor',
+			'estado_cliente' => 'Estado Cliente',
+			'pension' => 'Pension',
+			'tp_vinculacion_eps' => 'Tp Vinculacion Eps',
+			'eps' => 'Eps',
+			'nombre_completo' => 'Nombre Completo',
 		);
 	}
 
@@ -98,16 +97,19 @@ class InformacionLaboral extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id,true);
-		$criteria->compare('cliente',$this->cliente,true);
-		$criteria->compare('direccion',$this->direccion,true);
+		$criteria->compare('cedula',$this->cedula,true);
+		$criteria->compare('nombres',$this->nombres,true);
+		$criteria->compare('apellidos',$this->apellidos,true);
 		$criteria->compare('telefono',$this->telefono,true);
+		$criteria->compare('correo',$this->correo,true);
 		$criteria->compare('celular',$this->celular,true);
-		$criteria->compare('cargo',$this->cargo,true);
-		$criteria->compare('salario',$this->salario);
-		$criteria->compare('tiempo_laborado',$this->tiempo_laborado,true);
-		$criteria->compare('contrato',$this->contrato,true);
-		$criteria->compare('nombre_compania',$this->nombre_compania,true);
+		$criteria->compare('direccion',$this->direccion,true);
+		$criteria->compare('solo_codeudor',$this->solo_codeudor);
+		$criteria->compare('estado_cliente',$this->estado_cliente,true);
+		$criteria->compare('pension',$this->pension,true);
+		$criteria->compare('tp_vinculacion_eps',$this->tp_vinculacion_eps,true);
+		$criteria->compare('eps',$this->eps,true);
+		$criteria->compare('nombre_completo',$this->nombre_completo,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -118,7 +120,7 @@ class InformacionLaboral extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return InformacionLaboral the static model class
+	 * @return Vcliente the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

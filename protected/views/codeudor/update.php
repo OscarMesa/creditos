@@ -12,7 +12,7 @@ $this->breadcrumbs=array(
 	array('label'=>'Manage Codeudor','url'=>array('admin')),
 	);
 	?>
-
-	<h1>Update Codeudor <?php echo $model->id; ?></h1>
-
+<section class="content-header">
+	<h1>Actualizar Codeudor <?php echo $model->id; ?></h1>
+</section>
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

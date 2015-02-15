@@ -45,15 +45,15 @@ return false;
 'columns'=>array(
 		'id',
 		'cliente',
-		'nombre_compañia',
 		'direccion',
 		'telefono',
 		'celular',
-		/*
 		'cargo',
+		/*
 		'salario',
 		'tiempo_laborado',
 		'contrato',
+		'nombre_compania',
 		*/
 array(
 'class'=>'bootstrap.widgets.TbButtonColumn',

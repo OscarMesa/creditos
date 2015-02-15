@@ -9,7 +9,7 @@ array('label'=>'List Codeudor','url'=>array('index')),
 array('label'=>'Manage Codeudor','url'=>array('admin')),
 );
 ?>
+<?php $this->titlePage = "Crear Codeudor" ?>
 
-<h1>Create Codeudor</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

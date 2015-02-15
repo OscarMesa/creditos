@@ -12,8 +12,9 @@ array('label'=>'Delete Codeudor','url'=>'#','linkOptions'=>array('submit'=>array
 array('label'=>'Manage Codeudor','url'=>array('admin')),
 );
 ?>
-
-<h1>View Codeudor #<?php echo $model->id; ?></h1>
+    <section class="content-header">
+        <h1>Ver Codeudor #<?php echo $model->id; ?></h1>
+    </section>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,

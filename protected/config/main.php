@@ -10,7 +10,7 @@ return array(
     'name' => 'Creditos',
     'theme' => 'credito',
     'language' => "es",
-//    'bootstrap' => 'ext.bootstrap',
+    'homeUrl' => 'site/index',
     // preloading 'log' component
     'preload' => array(
         'log',

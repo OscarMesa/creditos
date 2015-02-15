@@ -9,7 +9,9 @@ array('label'=>'Manage Codeudor','url'=>array('admin')),
 );
 ?>
 
-<h1>Codeudors</h1>
+<section class="content-header">
+<h1>Codeudores</h1>
+</section>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
