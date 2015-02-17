@@ -23,11 +23,11 @@
 
 		<?php echo $form->textFieldRow($model,'nombre_compania',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<div class="form-actions">
+	<div class="box-footer">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType' => 'submit',
 			'type'=>'primary',
-			'label'=>'Search',
+			'label'=>'Buscar',
 		)); ?>
 	</div>
 

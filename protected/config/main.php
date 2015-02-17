@@ -146,10 +146,10 @@ return array(
         // uncomment the following to use a MySQL database
         
           'db'=>array(
-          'connectionString' => 'pgsql:host='.MYSQL_HOST.';port='.MYSQL_PORT.';dbname='.MYSQL_DB,
+          'connectionString' => 'pgsql:host='.POSTGRES_HOST.';port='.POSTGRES_PORT.';dbname='.POSTGRES_DB,
           'emulatePrepare' => true,
-          'username' => MYSQL_USER,
-          'password' => MYSQL_PASS,
+          'username' => POSTGRES_USER,
+          'password' => POSTGRES_PASS,
           'charset' => 'utf8',
           ),
          

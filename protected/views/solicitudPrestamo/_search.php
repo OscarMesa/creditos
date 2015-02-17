@@ -15,11 +15,11 @@
 
 		<?php echo $form->textFieldRow($model,'estado_solicitud',array('class'=>'span5')); ?>
 
-	<div class="form-actions">
+	<div class="box-footer">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType' => 'submit',
 			'type'=>'primary',
-			'label'=>'Search',
+			'label'=>'Buscar',
 		)); ?>
 	</div>
 

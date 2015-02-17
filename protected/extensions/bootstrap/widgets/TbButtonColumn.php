@@ -19,6 +19,7 @@ Yii::import('zii.widgets.grid.CButtonColumn');
  */
 class TbButtonColumn extends CButtonColumn
 {
+       public $evaluateHtmlOptions = false;
 	/**
 	 * @var string the view button icon (defaults to 'eye-open').
 	 */

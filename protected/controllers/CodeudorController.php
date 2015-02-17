@@ -131,10 +131,11 @@ class CodeudorController extends Controller {
      */
     public function actionAdmin() {
         $model = new Codeudor('search');
+        $this->titlePage = "Administrar Codeudores";
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['Codeudor']))
             $model->attributes = $_GET['Codeudor'];
-
+        
         $this->render('admin', array(
             'model' => $model,
         ));

@@ -12,7 +12,6 @@ $this->breadcrumbs=array(
 	array('label'=>'Manage Codeudor','url'=>array('admin')),
 	);
 	?>
-<section class="content-header">
-	<h1>Actualizar Codeudor <?php echo $model->id; ?></h1>
-</section>
+<?php $this->titlePage = "Actualizar Codeudor ".$model->id;?>
+
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>
