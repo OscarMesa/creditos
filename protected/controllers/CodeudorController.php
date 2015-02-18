@@ -11,10 +11,9 @@ class CodeudorController extends Controller {
     /**
      * @return array action filters
      */
-     public function filters()
-        {
-           return array(array('CrugeAccessControlFilter'));
-        }
+    public function filters() {
+        return array(array('CrugeAccessControlFilter'));
+    }
 
     /**
      * Specifies the access control rules.
@@ -35,25 +34,26 @@ class CodeudorController extends Controller {
             'model' => $this->loadModel($id),
         ));
     }
+
     /**
      * este metodo listara los clientes en la tabla de clientes, con excepcion de un usuario que se le envie, en caso de no enviar listara todos
      * @author Oskar <oscarmesa.elpoli@gmail.com>
      */
-    public function actionListarClientes(){
+    public function actionListarClientes() {
         $dataReturn = array();
         $t = 0;
-        $clientes = Vcliente::model()->findAll(array('condition' => 'cedula != ? AND nombre_completo LIKE ?', 'params' => array(($model->cedula_codeudor != null ? $model->cedula_codeudor : 0), ("'%".$_REQUEST['term']."%'"))));
+        $clientes = Vcliente::model()->findAll(array('condition' => 'cedula != ? AND nombre_completo LIKE ?', 'params' => array(($model->cedula_codeudor != null ? $model->cedula_codeudor : 0), ("'%" . $_REQUEST['term'] . "%'"))));
 //                '', '
         foreach ($clientes as $cliente) {
-            $dataReturn[] = array('id'=>$cliente->cedula,'text'=>$cliente->nombre_completo);
+            $dataReturn[] = array('id' => $cliente->cedula, 'text' => $cliente->nombre_completo);
         }
-        
+
 //        if(count($dataReturn) == 0)
 //        {
 //            $dataReturn[] = array('id' => 0, 'text' => 'No se encontraron resultados.');
 //        }
-        
-        echo json_encode(array('results'=>$dataReturn,'total' => $t));
+
+        echo json_encode(array('results' => $dataReturn, 'total' => $t));
     }
 
     /**
@@ -135,7 +135,7 @@ class CodeudorController extends Controller {
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['Codeudor']))
             $model->attributes = $_GET['Codeudor'];
-        
+
         $this->render('admin', array(
             'model' => $model,
         ));

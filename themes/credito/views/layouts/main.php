@@ -18,7 +18,7 @@
         <?php
         $baseUrl = Yii::app()->baseUrl;
         $cs = Yii::app()->getClientScript();
-        $cs->registerCssFile($baseUrl . '/themes/credito/dist/css/AdminLTE.min.css');
+//        $cs->registerCssFile($baseUrl . '/themes/credito/dist/css/AdminLTE.min.css');
         $cs->registerCssFile($baseUrl . '/themes/credito/dist/css/AdminLTE.css');
         $cs->registerCssFile($baseUrl . '/themes/credito/plugins/daterangepicker/daterangepicker-bs3.css');
         $cs->registerCssFile($baseUrl . '/themes/credito/plugins/jvectormap/jquery-jvectormap-1.2.2.css');

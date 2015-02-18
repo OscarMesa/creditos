@@ -10,6 +10,6 @@ array('label'=>'Manage Cliente','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Cliente</h1>
+<?php $this->titlePage = "Create Cliente" ?>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

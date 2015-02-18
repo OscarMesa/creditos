@@ -16,11 +16,11 @@
         <div class="box-body">
         <p class="help-block"><?php echo Yii::t('viewApp', "Fields with <span class='required'>*</span> are required."); ?></p>
                 <?php echo $form->errorSummary($model); ?>
-            <div class="form-group">
+            <div class="form-group sl2">
                 <?php echo $form->labelEx($model, 'cedula_cliente', array()); ?>
                 <?php
                 
-                echo $form->hiddenField($model, 'cedula_cliente', array('class' => 'frm-select2'));
+                echo $form->hiddenField($model, 'cedula_cliente', array('class' => 'form-control'));
                 
                       $this->widget('ext.select2.ESelect2',array(
                            'selector' => '#Codeudor_cedula_cliente',
@@ -65,11 +65,11 @@
                 
                 ?>
             </div>
-            <div class="form-group">
+            <div class="form-group sl2">
                 <?php echo $form->labelEx($model, 'cedula_codeudor', array()); ?>
                 <?php
                 
-                echo $form->hiddenField($model, 'cedula_codeudor', array('class' => 'frm-select2'));
+                echo $form->hiddenField($model, 'cedula_codeudor', array('class' => 'form-control','style'=>''));
                 
                         $this->widget('ext.select2.ESelect2',array(
                            'selector' => '#Codeudor_cedula_codeudor',

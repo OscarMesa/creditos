@@ -92,10 +92,10 @@ class Cliente extends CActiveRecord
 			'correo' => 'Correo',
 			'celular' => 'Celular',
 			'direccion' => 'Direccion',
-			'solo_codeudor' => 'La idea es que un codeudor se pueda convertir en un cliente, pero si solo es un codeudor saber diferenciarlo. Ademas un cliente tambien puede ser un codeudor.',
+			'solo_codeudor' => 'Solo codeudor.',
 			'estado_cliente' => 'Estado Cliente',
 			'pension' => 'Pension',
-			'tp_vinculacion_eps' => 'Tp Vinculacion Eps',
+			'tp_vinculacion_eps' => 'Tipo de vinculación con la  EPS',
 			'eps' => 'Eps',
 		);
 	}
