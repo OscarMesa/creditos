@@ -1,15 +1,13 @@
 <?php
 $this->breadcrumbs=array(
-	'Informacion Laborals'=>array('index'),
-	'Create',
+	'Información Laboral'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-array('label'=>'List InformacionLaboral','url'=>array('index')),
-array('label'=>'Manage InformacionLaboral','url'=>array('admin')),
+array('label'=>'Lista de la Información Laboral','url'=>array('index')),
+array('label'=>'Administrador Información Laboral','url'=>array('admin')),
 );
 ?>
-
-<h1>Create InformacionLaboral</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

@@ -7,7 +7,7 @@
 
 <?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'descripcion',array('class'=>'span5','maxlength'=>50)); ?>
+	<?php echo $form->textFieldRow($model,'descripcion',array('class'=>'form-control','maxlength'=>50)); ?>
 
 <div class="box-footer">
 	<?php $this->widget('bootstrap.widgets.TbButton', array(

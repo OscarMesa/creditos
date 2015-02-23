@@ -5,11 +5,9 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List TipoVinculacionEps','url'=>array('index')),
-array('label'=>'Manage TipoVinculacionEps','url'=>array('admin')),
+array('label'=>'Listar Tipo Vinculacion Eps','url'=>array('index')),
+array('label'=>'Administrar Tipo Vinculacion Eps','url'=>array('admin')),
 );
 ?>
-
-<h1>Create TipoVinculacionEps</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

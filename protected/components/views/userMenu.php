@@ -270,171 +270,26 @@
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu">
             <li class="header">MENÚ DE NAVEGACIÓN</li>
-            <li class="active treeview">
-                <a href="#">
-                    <i class="fa fa-dashboard"></i> <span>Codeudor</span> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("codeudor/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("codeudor/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("codeudor/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-th"></i>  <span>Cliente</span> <small class="label pull-right bg-green">*</small> <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("cliente/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("cliente/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("cliente/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-bar-chart-o"></i>
-                    <span>Información laboral</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("informacionLaboral/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("informacionLaboral/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("informacionLaboral/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-laptop"></i>
-                    <span>Cargos</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("cargos/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("cargos/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("cargos/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-edit"></i> <span>EPS</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("eps/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("eps/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("eps/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            <?php if(Yii::app()->user->isSuperAdmin){?>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-table"></i> <span>Usuarios</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <?php foreach(Yii::app()->user->ui->adminItems as $item){?>
-                        <li><a href="<?php echo $item['url']?>"><i class="<?php echo $item['icono']?>"></i> <?php echo $item['label']?></a></li>
-                    <?php } ?>
-                </ul>
-            </li>
-            <?php } ?>
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Referencias</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("referencias/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("referencias/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("referencias/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-           
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Tipo Abono</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("tipoAbono/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("tipoAbono/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("tipoAbono/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Pensiones</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("pensiones/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("pensiones/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("pensiones/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Parentescos</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("parentescoReferencia/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("parentescoReferencia/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("parentescoReferencia/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Tipo vinculación EPS</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("tipoVinculacionEps/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("tipoVinculacionEps/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("tipoVinculacionEps/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Solicitud de prestamo</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("solicitudPrestamo/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("solicitudPrestamo/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("solicitudPrestamo/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-folder"></i> <span>Tipo de referencia</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("tipoReferencia/create"); ?>"><i class="fa fa-angle-double-right"></i> Crear</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("tipoReferencia/index"); ?>"><i class="fa fa-angle-double-right"></i> Listar</a></li>
-                    <li><a href="<?php echo Yii::app()->createAbsoluteUrl("tipoReferencia/admin"); ?>"><i class="fa fa-angle-double-right"></i> Administrador</a></li>
-                </ul>
-            </li>
-            
-            <li class="header">LABELS</li>
-            <li><a href="#"><i class="fa fa-circle-o text-danger"></i> Important</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-warning"></i> Warning</a></li>
-            <li><a href="#"><i class="fa fa-circle-o text-info"></i> Information</a></li>
+            <?php 
+                $menus = Menu::model()->findAll(array(
+                        'condition'=>'m0.padre=0',
+                        'alias' => 'm0',
+                        'params'=>array(),
+                        'order' => 'm0.orden ASC',
+                        'with'=>array(
+                          'menu' => array(
+                              'alias' => 'm1',
+                              'order' => 'm1.orden ASC'
+                          ) 
+                        )
+                    )
+                );
+//                echo '<pre>';
+                foreach ($menus as $menu) {
+                    $this->crearSeccionMenu($menu);
+                }
+//                die;
+            ?>
         </ul>
     </section>
     <!-- /.sidebar -->

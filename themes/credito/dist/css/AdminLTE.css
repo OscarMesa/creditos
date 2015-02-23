@@ -5353,3 +5353,10 @@ Gradient Background colors
 .sl2 .select2-container{
     padding: 0px;
 }  
+
+.treeview .header{
+    color: #4b646f;
+    background: #1a2226;
+    padding: 10px 25px 10px 15px;
+    font-size: 12px;
+}

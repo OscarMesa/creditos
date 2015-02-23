@@ -53,8 +53,8 @@ class TipoVinculacionEps extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'descripcion' => 'Descripcion',
+			'id' => 'Id',
+			'descripcion' => 'Descripción',
 		);
 	}
 

@@ -1,15 +1,13 @@
 <?php
 $this->breadcrumbs=array(
-	'Parentesco Referencias'=>array('index'),
-	'Create',
+	'Parentesco Referencia'=>array('index'),
+	'Crear',
 );
 
 $this->menu=array(
-array('label'=>'List ParentescoReferencia','url'=>array('index')),
-array('label'=>'Manage ParentescoReferencia','url'=>array('admin')),
+array('label'=>'Listar Parentesco referencia','url'=>array('index')),
+array('label'=>'Administrador Parentesco referencia','url'=>array('admin')),
 );
 ?>
-
-<h1>Create ParentescoReferencia</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

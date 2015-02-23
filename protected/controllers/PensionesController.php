@@ -46,7 +46,7 @@ class PensionesController extends Controller {
      */
     public function actionCreate() {
         $model = new Pensiones;
-
+         $this->titlePage = "Crear entidad de Pensión";
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 

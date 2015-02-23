@@ -12,9 +12,7 @@ class TipoVinculacionEpsController extends Controller {
      * @return array action filters
      */
     public function filters() {
-        return array(
-            'accessControl', // perform access control for CRUD operations
-        );
+        return array(array('CrugeAccessControlFilter'));
     }
 
     /**
@@ -23,7 +21,7 @@ class TipoVinculacionEpsController extends Controller {
      * @return array access control rules
      */
     public function accessRules() {
-        return array(array('CrugeAccessControlFilter'));
+        return array();
     }
 
     public function actionListarTpVincEPSAjax() {
@@ -46,7 +44,7 @@ class TipoVinculacionEpsController extends Controller {
      */
     public function actionCreate() {
         $model = new TipoVinculacionEps;
-
+        $this->titlePage = "Crear Tipo de Vinculación";
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
@@ -68,7 +66,7 @@ class TipoVinculacionEpsController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
-
+        $this->titlePage = "Actualizar Tipo de vinculación  #$model->id";
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 

@@ -67,14 +67,14 @@ class InformacionLaboral extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
+			'id' => 'Id',
 			'cliente' => 'Cliente',
-			'direccion' => 'Direccion',
-			'telefono' => 'Telefono',
+			'direccion' => 'Dirección',
+			'telefono' => 'Teléfono',
 			'celular' => 'Celular',
 			'cargo' => 'Cargo',
 			'salario' => 'Salario',
-			'tiempo_laborado' => 'Tiempo Laborado',
+			'tiempo_laborado' => 'Tiempo laborado',
 			'contrato' => 'Contrato',
 			'nombre_compania' => 'Nombre Compania',
 		);

@@ -28,6 +28,7 @@ class TipoAbono extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+                        array('descripcion', 'required'),
 			array('descripcion', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
@@ -53,8 +54,8 @@ class TipoAbono extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'descripcion' => 'Descripcion',
+			'id' => 'Id',
+			'descripcion' => 'Descripción',
 		);
 	}
 

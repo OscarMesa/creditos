@@ -9,6 +9,11 @@
  *
  * @var Bootstrap $this
  */
+//echo '<pre>';
+//var_dump(Yii::app()->urlManager->parseUrl(Yii::app()->request));
+$r = strpos(strtolower(Yii::app()->urlManager->parseUrl(Yii::app()->request)),'gii');
+//var_dump(if($r));
+//die;
 return array(
 	'font-awesome' => array(
 		'baseUrl' => $this->enableCdn ? '//netdna.bootstrapcdn.com/font-awesome/4.0.3/' : $this->getAssetsUrl().'/font-awesome/',
@@ -16,7 +21,7 @@ return array(
 	),
 	'bootstrap.js' => array(
 		'baseUrl' => $this->enableCdn ? '//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/' : $this->getAssetsUrl() . '/bootstrap/',
-//		'js' => array($this->minify ? 'js/bootstrap.min.js' : 'js/bootstrap.js'),
+		'js' => array(($r===false)? 'js/bootstrap_2.js' : 'js/bootstrap.js'),
 		'depends' => array('jquery'),
 	),
 	'bootstrap-yii' => array(

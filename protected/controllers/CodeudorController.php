@@ -62,7 +62,7 @@ class CodeudorController extends Controller {
      */
     public function actionCreate() {
         $model = new Codeudor;
-
+        $this->titlePage = "Crear codeudor";
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 //        print_r($_REQUEST);die;

@@ -5,11 +5,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-array('label'=>'List EstadoSolicitud','url'=>array('index')),
-array('label'=>'Manage EstadoSolicitud','url'=>array('admin')),
+array('label'=>'Listar estado solicitud','url'=>array('index')),
+array('label'=>'Administrador estado solicitud','url'=>array('admin')),
 );
 ?>
 
-<h1>Create EstadoSolicitud</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

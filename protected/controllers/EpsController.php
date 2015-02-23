@@ -45,7 +45,7 @@ class EpsController extends Controller {
      */
     public function actionCreate() {
         $model = new Eps;
-
+        $this->titlePage = "Crear EPS";
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 
@@ -67,7 +67,7 @@ class EpsController extends Controller {
      */
     public function actionUpdate($id) {
         $model = $this->loadModel($id);
-
+        $this->titlePage = "Actualizar EPS  #$model->id";
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 

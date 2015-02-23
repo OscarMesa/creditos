@@ -63,16 +63,16 @@ class Vcliente extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cedula' => 'Cedula',
+			'cedula' => 'Cédula',
 			'nombres' => 'Nombres',
 			'apellidos' => 'Apellidos',
-			'telefono' => 'Telefono',
+			'telefono' => 'Teléfono',
 			'correo' => 'Correo',
 			'celular' => 'Celular',
-			'direccion' => 'Direccion',
+			'direccion' => 'Dirección',
 			'solo_codeudor' => 'Solo Codeudor',
 			'estado_cliente' => 'Estado Cliente',
-			'pension' => 'Pension',
+			'pension' => 'Pensión',
 			'tp_vinculacion_eps' => 'Tp Vinculacion Eps',
 			'eps' => 'Eps',
 			'nombre_completo' => 'Nombre Completo',

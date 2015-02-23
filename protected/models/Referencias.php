@@ -8,7 +8,7 @@
  * @property string $tipo_referencia
  * @property string $parentesco
  * @property string $nombres
- * @property string $calular
+ * @property string $celular
  * @property string $telefono
  * @property string $direccion
  * @property string $cliente
@@ -38,13 +38,13 @@ class Referencias extends CActiveRecord
 		return array(
 			array('tipo_referencia, nombres, cliente', 'required'),
 			array('nombres', 'length', 'max'=>100),
-			array('calular', 'length', 'max'=>20),
+			array('celular', 'length', 'max'=>20),
 			array('telefono', 'length', 'max'=>15),
 			array('direccion', 'length', 'max'=>30),
 			array('parentesco', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, tipo_referencia, parentesco, nombres, calular, telefono, direccion, cliente', 'safe', 'on'=>'search'),
+			array('id, tipo_referencia, parentesco, nombres, celular, telefono, direccion, cliente', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,7 +72,7 @@ class Referencias extends CActiveRecord
 			'tipo_referencia' => 'Tipo Referencia',
 			'parentesco' => 'Parentesco',
 			'nombres' => 'Nombres',
-			'calular' => 'Calular',
+			'celular' => 'Celular',
 			'telefono' => 'Telefono',
 			'direccion' => 'Direccion',
 			'cliente' => 'Cliente',
@@ -101,7 +101,7 @@ class Referencias extends CActiveRecord
 		$criteria->compare('tipo_referencia',$this->tipo_referencia,true);
 		$criteria->compare('parentesco',$this->parentesco,true);
 		$criteria->compare('nombres',$this->nombres,true);
-		$criteria->compare('calular',$this->calular,true);
+		$criteria->compare('celular',$this->celular,true);
 		$criteria->compare('telefono',$this->telefono,true);
 		$criteria->compare('direccion',$this->direccion,true);
 		$criteria->compare('cliente',$this->cliente,true);
