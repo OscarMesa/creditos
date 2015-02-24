@@ -108,6 +108,7 @@ class ReferenciasController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+        $this->titlePage = "Administrador de referencias";
         $model = new Referencias('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['Referencias']))

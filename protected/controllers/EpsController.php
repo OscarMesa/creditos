@@ -113,6 +113,7 @@ class EpsController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+        $this->titlePage = "Administrador de EPS";
         $model = new Eps('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['Eps']))

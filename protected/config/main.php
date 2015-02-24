@@ -35,6 +35,8 @@ return array(
                 // en vez de 'default' pon 'authdemo' para que utilice el demo de autenticacion alterna
                 // para saber mas lee documentacion de la clase modules/cruge/models/auth/AlternateAuthDemo.php
                 //
+//                'useCGridViewClass' => 'application.components.CREGridView',
+                'buttonStyle' => 'bootstrap',
                 'availableAuthMethods'=>array('default'),
 
                 'availableAuthModes'=>array('username','email'),
@@ -73,8 +75,8 @@ return array(
 
                 // manejo del layout con cruge.
                 //
-                'loginLayout'=>'//layouts/main',
-                'registrationLayout'=>'//layouts/main',
+                'loginLayout'=>'//layouts/usuarioCrug',
+                'registrationLayout'=>'//layouts/usuarioCrug',
                 'activateAccountLayout'=>'//layouts/main',
                 'editProfileLayout'=>'//layouts/main',
                 // en la siguiente puedes especificar el valor "ui" o "column2" para que use el layout

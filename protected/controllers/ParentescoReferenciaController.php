@@ -108,6 +108,7 @@ class ParentescoReferenciaController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+        $this->titlePage = "Administrador de parentescos";
         $model = new ParentescoReferencia('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['ParentescoReferencia']))

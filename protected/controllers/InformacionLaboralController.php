@@ -108,6 +108,7 @@ class InformacionLaboralController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+        $this->titlePage = "Administrador de Información Laboral";
         $model = new InformacionLaboral('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['InformacionLaboral']))

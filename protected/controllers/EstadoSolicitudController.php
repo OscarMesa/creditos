@@ -108,6 +108,7 @@ class EstadoSolicitudController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+        $this->titlePage = "Administrador de estado de solicitudes";
         $model = new EstadoSolicitud('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['EstadoSolicitud']))

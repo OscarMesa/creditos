@@ -108,6 +108,7 @@ class SolicitudPrestamoController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+        $this->titlePage = "Administrador de solicitudes"; 
         $model = new SolicitudPrestamo('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['SolicitudPrestamo']))
