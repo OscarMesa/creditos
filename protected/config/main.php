@@ -77,7 +77,8 @@ return array(
                 //
                 'loginLayout'=>'//layouts/usuarioCrug',
                 'registrationLayout'=>'//layouts/usuarioCrug',
-                'activateAccountLayout'=>'//layouts/main',
+                'activateAccountLayout'=>'//layouts/usuarioCrug',
+                'resetPasswordLayout'=>'//layouts/usuarioCrug',
                 'editProfileLayout'=>'//layouts/main',
                 // en la siguiente puedes especificar el valor "ui" o "column2" para que use el layout
                 // de fabrica, es basico pero funcional.  si pones otro valor considera que cruge
