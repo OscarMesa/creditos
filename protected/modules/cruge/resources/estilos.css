@@ -47,15 +47,6 @@ img.iconhelp{
 
 
 .auth-item-create-button {
-	border: 1px dotted #aaa;
-	box-shadow: 3px 3px 5px #eee;
-	border-radius: 5px;
-	padding: 5px;
-	background-color: rgb(255,255,240);
-	text-align: center;
-	width: 120px;
-	margin: 10px;
-	margin-left: 0px;
 }
 
 div.form .form-group {

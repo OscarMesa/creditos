@@ -24,9 +24,15 @@
 	$treeDataOps = array();
 
 	// titulos
-	echo "<section class='content-header'><h1>".ucfirst($model->name)." (".
-		CrugeTranslator::t($rbac->getAuthItemTypeName($model->type)).")</h1></section>";
-	echo "<h3 class='hint'>".$model->description."</h3>";
+	$this->titlePage = "<h1>".ucfirst($model->name)." (".
+		CrugeTranslator::t($rbac->getAuthItemTypeName($model->type)).")</h1>";
+        ?>
+        <div class="col-md-10">
+            <div class="box box-primary">
+                 
+        <?php 
+	echo "<div class='box-header'><h3 class='hint'>".$model->description."</h3></div>"
+                . "<div class='box-body'>";
 	echo "<p>".ucfirst(CrugeTranslator::t(
 	"haga click en un item para activarlo o desactivarlo"))."</p>";
 
@@ -261,7 +267,9 @@
 		)
 	));
 ?>
-
+</div>
+</div>
+</div>
 <script>
 	$('img.pin-on').each(function(){
 		var img = $(this);

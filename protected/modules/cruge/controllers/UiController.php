@@ -126,7 +126,7 @@ class UiController extends Controller {
         Yii::app()->user->setFlash('loginflash', null);
 
         Yii::log(__CLASS__ . "\nactionLogin\n", "info");
-
+        
         if (isset($_POST[CrugeUtil::config()->postNameMappings['CrugeLogon']])) {
             $model->attributes = $_POST[CrugeUtil::config()->postNameMappings['CrugeLogon']];
             if ($model->validate()) {
@@ -243,11 +243,12 @@ class UiController extends Controller {
                     if ($boolIsUserManagement == true) {
                         $this->redirect(array('usermanagementadmin'));
                     } else {
-                        $this->redirect(array('usersaved', 'layout' => $this->layout));
+                        $this->redirect(array('usersaved'));
                     }
                 }
             }
         }
+        $this->titlePage = $boolIsUserManagement ? "Editando usuario" : "Editando tu perfil";
         $this->render(
                 "usermanagementupdate", array(
             'model' => $model
@@ -263,7 +264,7 @@ class UiController extends Controller {
 
     public function actionUserManagementCreate() {
         $model = Yii::app()->user->um->createBlankUser();
-
+        $this->titlePage = ucwords(CrugeTranslator::t("crear nuevo usuario"));
         if (isset($_POST[CrugeUtil::config()->postNameMappings['CrugeStoredUser']])) {
             $model->attributes = $_POST[CrugeUtil::config()->postNameMappings['CrugeStoredUser']];
 
@@ -484,6 +485,7 @@ class UiController extends Controller {
 
     public function actionRbacListRoles() {
         Yii::app()->user->rbac->autoDetect();
+        $this->titlePage = ucwords(CrugeTranslator::t("roles"));
         $dataProvider = Yii::app()->user->rbac->getDataProviderRoles();
         $this->render('rbaclistroles', array('dataProvider' => $dataProvider));
     }
@@ -586,6 +588,7 @@ class UiController extends Controller {
                 }
             }
         }
+        $this->titlePage = ucwords(CrugeTranslator::t("Creando") . " " . CrugeTranslator::t($editor->categoria));
         $this->render('rbacauthitemcreate', array('model' => $editor));
     }
 
@@ -952,6 +955,13 @@ class UiController extends Controller {
             throw new CrugeException("por favor no invoque este action manualmente");
         }
     }
+    
+    public function actionRbacUsersAssignments()
+    {
+        $this->layout = '//layouts/column2';
+        unset($this->breadcrumbs);
+        $this->render('rbacusersassignmentsIframe');
+    }
 
     /**
       maneja la asignacion masiva de usuarios a roles.  su contraparte es el action:
@@ -997,8 +1007,10 @@ class UiController extends Controller {
       que se quiere asignar o revocar un permiso (itemName) a una lista de usuarios (userid).
 
      */
-    public function actionRbacUsersAssignments() {
-
+    public function actionRbacUsersAssignmentsIframe() {
+        $this->layout = '//layouts/vacio';
+        $this->isBootstrap = false;
+        $this->titlePage = "Asignación de roles por usuario";
         $pageSize = 20;
         $rbac = Yii::app()->user->rbac;
         $um = Yii::app()->user->um;

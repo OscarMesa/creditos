@@ -61,10 +61,7 @@ $baseUrl = Yii::app()->baseUrl;
                 <div class="col-xs-7">
                     <div class="checkbox icheck">
                         <label>
-                            <div class="icheckbox_square-blue" aria-checked="false" aria-disabled="false" style="position: relative;">
-                            <?php echo $form->checkBox($model, 'rememberMe',array('style'=>'position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140%; margin: 0px; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);')); ?>
-                            <ins class="iCheck-helper" style="position: absolute; top: -20%; left: -20%; display: block; width: 140%; height: 140; padding: 0px; border: 0px; opacity: 0; background: rgb(255, 255, 255);"></ins>
-                            </div>
+                            <?php echo $form->checkBox($model, 'rememberMe'); ?>
                             <?php echo $model->getAttributeLabel('rememberMe'); ?>
                         </label>
                         <?php echo $form->error($model, 'rememberMe'); ?>

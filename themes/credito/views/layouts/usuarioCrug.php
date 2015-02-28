@@ -81,15 +81,22 @@
                 color: #fff;
                 display: none;
             }
+            .fa{
+                margin-top: 8px;
+            }
 ");
 
-        $cs->registerScriptFile('http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');
-        $cs->registerScriptFile('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js');
+        $cs->registerScriptFile('http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js',  CClientScript::POS_BEGIN);
+        $cs->registerScriptFile('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js',  CClientScript::POS_BEGIN);
 
-        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/app.js', CClientScript::POS_END);
+//        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/app.js', CClientScript::POS_END);
         $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/sparkline/jquery.sparkline.min.js', CClientScript::POS_END);
         $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js', CClientScript::POS_END);
         $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/jvectormap/jquery-jvectormap-world-mill-en.js', CClientScript::POS_END);
+        $cs->registerScript('tooltip', ''
+                . '$("[data-toggle=\'tooltip\']").tooltip();'
+                . '', CClientScript::POS_END);
+        
         ?>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -105,10 +112,16 @@
         <header>
             <nav class="frame" role="navigation">
                 <div class="container-fluid">
-                    <a href="http://almsaeedstudio.com/" class="brand">
+                    <a href="<?php echo Yii::app()->getBaseUrl(); ?>" class="brand">
                         Aplicación de créditos
                         <small class="text-muted hidden-xs">Una solución</small>
                     </a>
+                    
+                    <div class="buttons pull-right">
+                        <a class="first hidden-xs" id="login" href="<?php echo Yii::app()->user->ui->loginUrl; ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo CrugeTranslator::t('logon', 'Login');?>"><i class="fa fa-user fa-2x"></i></a>
+                        <a class="first hidden-xs" id="login" href="<?php echo Yii::app()->createAbsoluteUrl('cruge/ui/pwdrec'); ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo CrugeTranslator::t('logon', 'Lost Password?');?>"><i class="fa fa-unlock-alt fa-2x"></i></a>
+                        <a class="first hidden-xs" id="login" href="<?php echo Yii::app()->createAbsoluteUrl('cruge/ui/registration'); ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo CrugeTranslator::t('logon', 'Register');?>"><i class="fa fa-users fa-2x"></i></a>
+                    </div>
                 </div><!-- /.container -->
             </nav><!--/.navbar-->
         </header>   

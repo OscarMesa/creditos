@@ -42,7 +42,7 @@ class SolicitudPrestamoController extends Controller {
         $model = new SolicitudPrestamo;
         $this->titlePage = "Crear solicitud de prestamo";
 // Uncomment the following line if AJAX validation is needed
-// $this->performAjaxValidation($model);
+ $this->performAjaxValidation($model);
 
         if (isset($_POST['SolicitudPrestamo'])) {
             $model->attributes = $_POST['SolicitudPrestamo'];

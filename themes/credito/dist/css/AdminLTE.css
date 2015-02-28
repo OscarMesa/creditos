@@ -141,7 +141,7 @@ body {
     padding: 15px;
     margin-right: auto;
     margin-left: auto;
-    padding-left: 15px;
+    padding-left: 0px;
     padding-right: 15px;
 }
 /* H1 - H6 font */
@@ -5359,4 +5359,8 @@ Gradient Background colors
     background: #1a2226;
     padding: 10px 25px 10px 15px;
     font-size: 12px;
+}
+
+.radio label, .checkbox label{
+    padding-left: 0px;
 }

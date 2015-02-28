@@ -22,7 +22,22 @@ class Controller extends CController
 	public $breadcrumbs=array();
         
         /**
-         * 
+         * Titulo que lleva la pagina en el h1
+         * @author Oskar <oscarmesa.elpoli@gmail.com>
          */
         public  $titlePage = "";
+        
+        /**
+         * Con esta variable se busca determinar si el layout incluye bootstrap ( el que se inculye en yii). Se quito del preload, ya que algunas secciones no se necesita que cargue.
+         * @var boolan 
+         */
+        public $isBootstrap = true; 
+        
+        
+        public function init() {
+            parent::init();
+            if($this->isBootstrap)
+                Yii::import('ext.bootstrap.components.Bootstrap');
+        }
+        
 }

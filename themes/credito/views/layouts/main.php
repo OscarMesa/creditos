@@ -16,6 +16,7 @@
 
 
         <?php
+        
         $baseUrl = Yii::app()->baseUrl;
         $cs = Yii::app()->getClientScript();
 //        $cs->registerCssFile($baseUrl . '/themes/credito/dist/css/AdminLTE.min.css');
@@ -23,22 +24,31 @@
         $cs->registerCssFile($baseUrl . '/themes/credito/plugins/daterangepicker/daterangepicker-bs3.css');
         $cs->registerCssFile($baseUrl . '/themes/credito/plugins/jvectormap/jquery-jvectormap-1.2.2.css');
         $cs->registerCssFile($baseUrl . '/themes/credito/plugins/morris/morris.css');
-
-        $cs->registerScriptFile('http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');
-        $cs->registerScriptFile('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js');
-
-        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/app.js', CClientScript::POS_END);
-        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/sparkline/jquery.sparkline.min.js', CClientScript::POS_END);
-        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js', CClientScript::POS_END);
-        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/jvectormap/jquery-jvectormap-world-mill-en.js', CClientScript::POS_END);
-        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/daterangepicker/daterangepicker.js', CClientScript::POS_END);
-        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/datepicker/bootstrap-datepicker.js', CClientScript::POS_END);
-        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/iCheck/icheck.min.js', CClientScript::POS_END);
-        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/slimScroll/jquery.slimscroll.min.js', CClientScript::POS_END);
-        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/chartjs/Chart.min.js', CClientScript::POS_END);
-//        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/pages/dashboard.js');
+        $cs->registerCssFile($baseUrl . '/themes/credito/plugins/iCheck/flat/_all.css');
+?>
+         
+    <?php
+//        $cs->registerScriptFile('http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js');
+//        $cs->registerScriptFile('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js');
+//        $cs->registerScriptFile('http://localhost/creditos/assets/965a76f7/jquery.yiiactiveform.js',CClientScript::POS_END);
+//        $cs->registerScriptFile('http://localhost/creditos/assets/75c3461e/gridview/jquery.yiigridview.js',CClientScript::POS_END);
+        $cs->registerScript("notConflit",""
+                . "jQuery.noConflict();"
+                );
+        
+        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/sparkline/jquery.sparkline.min.js');
+        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js');
+        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/jvectormap/jquery-jvectormap-world-mill-en.js');
+        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/daterangepicker/daterangepicker.js');
+        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/datepicker/bootstrap-datepicker.js');
+        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/iCheck/icheck.min.js');
+        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/slimScroll/jquery.slimscroll.min.js');
+        $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/chartjs/Chart.min.js');
+        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/pages/dashboard.js');
         $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/pages/dashboard2.js');
-        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/demo.js', CClientScript::POS_END);
+        $cs->registerScriptFile($baseUrl . '/themes/credito/dist/js/demo.js');
+        
+        
         ?>
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -90,6 +100,17 @@
 <?php echo Yii::app()->user->ui->displayErrorConsole(); ?>
             </section>
         </div><!-- page -->
-
+     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>   
+     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/jquery.yiiactiveform.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/jquery.ba-bbq.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/jquery.cookie.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/jquery.treeview.js"></script>
+        <script type="text/javascript" src="/creditos/assets/75c3461e/gridview/jquery.yiigridview.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/app.js"></script>  
+        <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/plugins/iCheck/icheck.min.js"></script>
+        
+        
+        
     </body>
 </html>

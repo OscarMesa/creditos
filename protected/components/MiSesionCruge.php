@@ -25,8 +25,8 @@ class MiSesionCruge extends DefaultSessionFilter {
 	public function onLogin(/*ICrugeSession*/ $model){
 		parent::onLogin($model);
 //                echo 'hola';die;
-		if(Yii::app()->user->isSuperAdmin)
-			Yii::app()->getController()->redirect(array("/admin/index"));
+//		if(Yii::app()->user->isSuperAdmin)
+//			Yii::app()->getController()->redirect(array("/admin/index"));
 	}
 
 	/**

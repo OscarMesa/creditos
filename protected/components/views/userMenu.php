@@ -1,6 +1,11 @@
+<?php 
+//echo '<pre>';
+//echo Yii::app()->user->ui->formatDate(Yii::app()->user->getUser()->logondate);
+// print_r(Yii::app()->user->getUser());
+//print_r(Yii::app()->user->um->loadUserByUsername('admin',true));die;?>
 <header class="main-header">
     <!-- Logo -->
-    <a href="index2.html" class="logo"><?php echo CHtml::encode(Yii::app()->name); ?></a>
+    <a href="<?php echo Yii::app()->createAbsoluteUrl('site'); ?>" class="logo"><?php echo CHtml::encode(Yii::app()->name); ?></a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top" role="navigation">
         <!-- Sidebar toggle button-->
@@ -24,7 +29,7 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="themes/credito/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="<?php echo Yii::app()->getBaseUrl(true);?>/themes/credito/dist/img/default_profile.jpg" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
@@ -36,7 +41,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="themes/credito/dist/img/user3-128x128.jpg" class="img-circle" alt="user image">
+                                                <img src="<?php echo Yii::app()->getBaseUrl(true);?>/themes/credito/dist/img/default_profile.jpg" class="img-circle" alt="user image">
                                             </div>
                                             <h4>
                                                 AdminLTE Design Team
@@ -48,7 +53,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="themes/credito/dist/img/user4-128x128.jpg" class="img-circle" alt="user image">
+                                                <img src="<?php echo Yii::app()->getBaseUrl(true);?>/themes/credito/dist/img/default_profile.jpg" class="img-circle" alt="user image">
                                             </div>
                                             <h4>
                                                 Developers
@@ -60,7 +65,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="themes/credito/dist/img/user3-128x128.jpg" class="img-circle" alt="user image">
+                                                <img src="<?php echo Yii::app()->getBaseUrl(true);?>/themes/credito/dist/img/default_profile.jpg" class="img-circle" alt="user image">
                                             </div>
                                             <h4>
                                                 Sales Department
@@ -72,7 +77,7 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="themes/credito/dist/img/user4-128x128.jpg" class="img-circle" alt="user image">
+                                                <img src="<?php echo Yii::app()->getBaseUrl(true);?>/themes/credito/dist/img/default_profile.jpg" class="img-circle" alt="user image">
                                             </div>
                                             <h4>
                                                 Reviewers
@@ -83,7 +88,7 @@
                                     </li>
                                 </ul><div class="slimScrollBar" style="width: 3px; position: absolute; top: 0px; opacity: 0.4; display: block; border-radius: 7px; z-index: 99; right: 1px; background: rgb(0, 0, 0);"></div><div class="slimScrollRail" style="width: 3px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; opacity: 0.2; z-index: 90; right: 1px; background: rgb(51, 51, 51);"></div></div>
                         </li>
-                        <li class="footer"><a href="#">See All Messages</a></li>
+                        <li class="footer"><a href="#">Ver todas</a></li>
                     </ul>
                 </li>
                 <!-- Notifications: style can be found in dropdown.less -->
@@ -201,20 +206,24 @@
                 <!-- User Account: style can be found in dropdown.less -->
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <img src="themes/credito/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                        <img src="<?php echo Yii::app()->getBaseUrl(true);?>/themes/credito/dist/img/default_profile.jpg" class="user-image" alt="User Image">
                         <span class="hidden-xs">Alexander Pierce</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header">
-                            <img src="themes/credito/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                            <img src="<?php echo Yii::app()->getBaseUrl(true);?>/themes/credito/dist/img/default_profile.jpg" class="img-circle" alt="User Image">
                             <p>
-                                <?php echo Yii::app()->user->name;?>
-                                <small>Member since Nov. 2012</small>
+                                <?php echo Yii::app()->user->name;
+
+                                ?>
+                                <?php if(!Yii::app()->user->isGuest){ ?>
+                                <small><?php echo Yii::t('viewApp',"last access {date}", array('{date}' => Yii::app()->dateFormatter->format("yyyy-MM-d",Yii::app()->user->getUser()->logondate)));?></small>
+                                <?php } ?>
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
+<!--                        <li class="user-body">
                             <div class="col-xs-4 text-center">
                                 <a href="#">Followers</a>
                             </div>
@@ -224,11 +233,11 @@
                             <div class="col-xs-4 text-center">
                                 <a href="#">Friends</a>
                             </div>
-                        </li>
+                        </li>-->
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="<?php echo Yii::app()->createAbsoluteUrl('cruge/ui/editprofile'); ?>" class="btn btn-default btn-flat">Perfil</a>
                             </div>
                             <?php if(!Yii::app()->user->isGuest){?>
                             <div class="pull-right">
@@ -249,7 +258,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="themes/credito/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="<?php echo Yii::app()->getBaseUrl(true);?>/themes/credito/dist/img/default_profile.jpg" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>Alexander Pierce</p>

@@ -14,7 +14,7 @@ return array(
     // preloading 'log' component
     'preload' => array(
         'log',
-        'bootstrap'
+//        'bootstrap'
     ),
     'aliases' => array(
         'bootstrap' => 'ext.bootstrap',
@@ -25,6 +25,7 @@ return array(
         'application.components.*',
         'application.modules.cruge.components.*',
 	'application.modules.cruge.extensions.crugemailer.*',
+        'ext.yii-mail.YiiMailMessage',
     ),
     'modules' => array(
         'cruge'=>array(
@@ -45,9 +46,9 @@ return array(
                 'baseUrl'=>'http://localhost/creditos/',
 
                  // NO OLVIDES PONER EN FALSE TRAS INSTALAR
-                 'debug'=>true,
-                 'rbacSetupEnabled'=>true,
-                 'allowUserAlways'=>true,
+                 'debug'=>false,
+                 'rbacSetupEnabled'=>false,
+                 'allowUserAlways'=>false,
 
                 // MIENTRAS INSTALAS..PONLO EN: false
                 // lee mas abajo respecto a 'Encriptando las claves'
@@ -69,8 +70,8 @@ return array(
                 //		'afterLoginUrl'=>array('/site/welcome'),  ( !!! no olvidar el slash inicial / )
                 //		'afterLogoutUrl'=>array('/site/page','view'=>'about'),
                 //
-                'afterLoginUrl'=>null,
-                'afterLogoutUrl'=>null,
+                'afterLoginUrl'=>array('/site'),
+                'afterLogoutUrl'=> array('/cruge/ui/login'),
                 'afterSessionExpiredUrl'=>null,
 
                 // manejo del layout con cruge.
@@ -120,7 +121,7 @@ return array(
 				'class' => 'application.modules.cruge.components.CrugeAuthManager',
 			),
         'crugemailer'=>array(
-				'class' => 'application.modules.cruge.components.CrugeMailer',
+				'class' => 'application.components.MyCrugerMail',
 				'mailfrom' => 'creditos@gmail.com',
 				'subjectprefix' => 'Creditos',
 				'debug' => true,
@@ -175,7 +176,26 @@ return array(
              */
             ),
         ),
-
+        'mail' => array(
+            'class' => 'ext.yii-mail.YiiMail',
+            'transportType' => 'smtp',
+            'transportOptions' => array(
+                'host' => 'smtp.gmail.com',
+                'username' => 'import.openetwork@gmail.com',
+                'password' => 'ppN2s9M4',
+                'port' => '465',
+                'encryption' => 'ssl',
+            ),
+            'viewPath' => 'application.views.mail',
+            'logging' => true,
+            'dryRun' => false
+        ),
+        
+//         'clientScript'=>array(
+//            'coreScriptPosition'=>CClientScript::POS_END,
+//            'defaultScriptPosition'=>CClientScript::POS_END,
+//            'defaultScriptFilePosition'=>CClientScript::POS_END
+//        )
     ),
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
