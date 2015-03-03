@@ -102,6 +102,7 @@
                                         term: text, 
                                         page_limit: 10,
                                         page: page,
+                                        cargo:' . ($model->cargo != null ? $model->cargo : 0) . '
                                     };
                                 }',
                                 'results' => 'js:function(data,page) { var more = (page * 10) < data.total; return {results: data.results, more:more };

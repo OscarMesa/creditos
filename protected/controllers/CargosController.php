@@ -150,7 +150,7 @@ class CargosController extends Controller {
     {
         $result = array();
         $_REQUEST['term'] = strtolower($_REQUEST['term']);
-        if ($_REQUEST['cargo'] != NULL) {
+        if ($_REQUEST['cargo'] != 0) {
             $cargo = Cargos::model()->find(array(
                 'condition' => 'cargo = ?',
                 'params' => array(
