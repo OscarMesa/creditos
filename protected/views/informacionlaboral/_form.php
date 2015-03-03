@@ -40,6 +40,7 @@
                                         term: text, 
                                         page_limit: 10,
                                         page: page,
+                                        cliente:' . ($model->cliente != null ? $model->cliente : 0).'
                                     };
                                 }',
                                 'results' => 'js:function(data,page) { var more = (page * 10) < data.total; return {results: data.results, more:more };
@@ -53,7 +54,7 @@
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
                             'initSelection' => 'js: function (element, callback) {
-                                return $.getJSON("' . Yii::app()->createUrl('cliente/listarClientesAjax') . '", {term:"",cliente:' . ($model->cliente != null ? $model->cliente : "NULL") . '}, function (data) {
+                                return $.getJSON("' . Yii::app()->createUrl('cliente/listarClientesAjax') . '", {term:"",cliente:' . ($model->cliente != null ? $model->cliente : 0) . '}, function (data) {
                                     return callback(data);
 
                                 });
