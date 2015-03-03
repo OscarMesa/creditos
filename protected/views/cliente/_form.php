@@ -188,7 +188,7 @@
                                         term: text, 
                                         page_limit: 10,
                                         page: page,
-                                        cliente:' . ($model->tp_vinculacion_eps != null ? $model->tp_vinculacion_eps : 0) . '
+                                        tpv:' . ($model->tp_vinculacion_eps != null ? $model->tp_vinculacion_eps : 0) . '
                                     };
                                 }',
                                 'results' => 'js:function(data,page) { var more = (page * 10) < data.total; return {results: data.results, more:more };
@@ -237,7 +237,7 @@
                                         term: text, 
                                         page_limit: 10,
                                         page: page,
-                                        cliente:' . ($model->eps != null ? $model->eps : 0) . '
+                                        eps:' . ($model->eps != null ? $model->eps : 0) . '
                                     };
                                 }',
                                 'results' => 'js:function(data,page) { var more = (page * 10) < data.total; return {results: data.results, more:more };
