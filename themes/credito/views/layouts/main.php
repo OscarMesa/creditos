@@ -106,7 +106,7 @@
         <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/jquery.ba-bbq.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/jquery.cookie.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/jquery.treeview.js"></script>
-        <script type="text/javascript" src="/creditos/assets/75c3461e/gridview/jquery.yiigridview.js"></script>
+        <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/jquery.yiigridview.js"></script>
         <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/dist/js/app.js"></script>  
         <script type="text/javascript" src="<?php echo Yii::app()->getBaseUrl(true); ?>/themes/credito/plugins/iCheck/icheck.min.js"></script>
         
