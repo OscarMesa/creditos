@@ -13,13 +13,18 @@ array('label'=>'Manage InformacionLaboral','url'=>array('admin')),
 );
 ?>
 
-<h1>View InformacionLaboral #<?php echo $model->id; ?></h1>
+<?php $this->titlePage = "Ver información laboral #$model->id"; ?>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,
 'attributes'=>array(
 		'id',
-		'cliente',
+                array(
+                    'name' => 'cliente',
+                    'value' => function($data){
+                        return $data->cliente->nombre_completo;
+                    }
+                ),
 		'direccion',
 		'telefono',
 		'celular',

@@ -9,7 +9,7 @@ array('label'=>'Manage InformacionLaboral','url'=>array('admin')),
 );
 ?>
 
-<h1>Informacion Laborals</h1>
+<?php $this->titlePage = "Información Laboral"; ?>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 'dataProvider'=>$dataProvider,
