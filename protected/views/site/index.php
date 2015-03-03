@@ -111,7 +111,7 @@ $this->pageTitle = Yii::app()->name;
             ?>
                 </div>
                 <div class="tab-pane" id="tab_2">
-                        <?php echo $this->renderPartial('application.views.solicitudPrestamo._formSolicitudInicio',array('model' => $modelSolicitudPrestamo));?>
+                        <?php echo $this->renderPartial('application.views.solicitudprestamo._formSolicitudInicio',array('model' => $modelSolicitudPrestamo));?>
                 </div>
             </div>
         </div>
