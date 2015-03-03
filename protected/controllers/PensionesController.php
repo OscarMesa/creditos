@@ -22,12 +22,6 @@ class PensionesController extends Controller {
      */
     public function accessRules() {
         return array();
-    }   
-    
-    
-    public function actionListarPensionesAjax()
-    {
-        
     }
 
     /**
@@ -41,12 +35,42 @@ class PensionesController extends Controller {
     }
 
     /**
+     * este metodo se encarga de retornar las pensiones que se registraron. 
+     * @author Oskar<oscarmesa.elpoli@gmail.com>
+     */
+    public function actionListarPensionesAjax() {
+        $result = array();
+        $_REQUEST['term'] = strtolower($_REQUEST['term']);
+        if ($_REQUEST['pension'] != 0) {
+            $pension = Pensiones::model()->find(array(
+                'condition' => 'id =  ?',
+                'params' => array(
+                    $_REQUEST['pension']
+                )
+            ));
+            echo CJSON::encode(array('id' => $pension->id, 'text' => $pension->pension));
+        } else {
+            $pensiones = Pensiones::model()->findAll(array(
+                'condition' => 'LOWER(pension) LIKE ?',
+                'params' => array(
+                    '%' . $_REQUEST['term'] . '%'
+                ),
+                'limit' => 10
+            ));
+            foreach ($pensiones as $pension) {
+                $result[] = array('id' => $pension->id, 'text' => $pension->pension);
+            }
+            echo CJSON::encode(array('results' => $result));
+        }
+    }
+
+    /**
      * Creates a new model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      */
     public function actionCreate() {
         $model = new Pensiones;
-         $this->titlePage = "Crear entidad de Pensión";
+        $this->titlePage = "Crear entidad de Pensión";
 // Uncomment the following line if AJAX validation is needed
 // $this->performAjaxValidation($model);
 

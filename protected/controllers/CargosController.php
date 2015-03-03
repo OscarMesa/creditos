@@ -141,5 +141,36 @@ class CargosController extends Controller {
             Yii::app()->end();
         }
     }
+    
+    /**
+     * este metodo se encarga de listar los cargos que se han registrado en la aplicación.
+     * @author Oskar<oscarmesa.elpolli@gmail.com>
+     */
+    public function actionListarCargosAjax()
+    {
+        $result = array();
+        $_REQUEST['term'] = strtolower($_REQUEST['term']);
+        if ($_REQUEST['cargo'] != NULL) {
+            $cargo = Cargos::model()->find(array(
+                'condition' => 'cargo = ?',
+                'params' => array(
+                    $_REQUEST['cargo']
+                )
+            ));
+            echo CJSON::encode(array('id' => $cargo->id, 'text' => $cliente->descripcion));
+        } else {
+            $cargos = Cargos::model()->findAll(array(
+                'condition' => 'LOWER(descripcion) LIKE ?',
+                'params' => array(
+                    '%' . $_REQUEST['term'] . '%'
+                ),
+                'limit' => 10
+            ));
+            foreach ($cargos as $cargo) {
+                $result[] = array('id' => $cargo->id, 'text' => $cargo->descripcion);
+            }
+            echo CJSON::encode(array('results' => $result));
+        }
+    }
 
 }

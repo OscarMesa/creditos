@@ -8,8 +8,7 @@ $this->menu=array(
 array('label'=>'List Eps','url'=>array('index')),
 array('label'=>'Manage Eps','url'=>array('admin')),
 );
+$this->titlePage = "Crear Eps";
 ?>
-
-<h1>Create Eps</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

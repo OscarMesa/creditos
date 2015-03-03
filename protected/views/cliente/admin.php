@@ -49,7 +49,7 @@ $this->menu = array(
             $cs = Yii::app()->getClientScript();
             $cs->registerCssFile($baseUrl . '/themes/credito/plugins/datatables/dataTables.bootstrap.css');
             $cs->registerCss("clientesCss", ".content { overflow-x: scroll !important; }");
-            $this->widget('application.components.CREGridView', array(
+            $this->widget('zii.widgets.grid.CGridView', array(
                 'id' => 'cliente-grid',
                 'dataProvider' => $model->search(),
                 'filter' => $model,
@@ -138,10 +138,31 @@ $this->menu = array(
                      */
                     array(
                         'class' => 'application.components.CREButtonColumn',
+                        'template' => "{update}{view}{delete}{aprobacionCliente}",
+                        'buttons' => array
+                        (
+                            'update'=>array(
+                                'url' => 'Yii::app()->createAbsoluteUrl("cliente/update/$data->cedula")'
+                            ),
+                            'view'=>array(
+                                'url' => 'Yii::app()->createAbsoluteUrl("cliente/view/$data->cedula")'
+                            ),
+                            'delete'=>array(
+                                'url' => 'Yii::app()->createAbsoluteUrl("cliente/delete/$data->cedula")'
+                            ),
+                            'aprobacionCliente' => array(
+                                'icon' => 'glyphicon glyphicon-ok',
+                                'url' => 'Yii::app()->createAbsoluteUrl("cliente/aprobacionCliente/$data->cedula")',
+                                'options' => array(
+                                    'data-toggle' => 'tooltip',
+                                    'title' => 'Aprobación de usuario'
+                                )
+                            ),
+                        )
                     ),
                 ),
                 'htmlOptions' => array(
-                    'class' => 'dataTables_wrapper form-inline',
+//                    'class' => 'dataTables_wrapper form-inline',
                     'role' => 'grid'
                 )
             ));

@@ -13,7 +13,7 @@ array('label'=>'Manage Cliente','url'=>array('admin')),
 );
 ?>
 
-<h1>View Cliente #<?php echo $model->cedula; ?></h1>
+<?php $this->titlePage = "Ver Cliente #".$model->cedula; ?>
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 'data'=>$model,
@@ -25,10 +25,35 @@ array('label'=>'Manage Cliente','url'=>array('admin')),
 		'correo',
 		'celular',
 		'direccion',
-		'solo_codeudor',
-		'estado_cliente',
-		'pension',
-		'tp_vinculacion_eps',
-		'eps',
+                array(
+                    'name' => 'solo_codeudor',
+                    'value' => function($data){
+                            return $data->solo_codeudor == 0 ? "No":"Si";
+                    }
+                ),
+                array(
+                    'name' => 'estado_cliente',
+                    'value' => function($data){
+                            return $data->estadoCliente->descripcion;
+                    }
+                ),
+		array(
+                    'name' => 'pension',
+                    'value' => function($data){
+                            return $data->pension0->pension;
+                    }
+                ),
+                array(
+                    'name' => 'tp_vinculacion_eps',
+                    'value' => function($data){
+                            return $data->tpVinculacionEps->descripcion;
+                    }
+                ),
+                array(
+                    'name' => 'eps',
+                    'value' => function($data){
+                            return $data->eps0->descripcion;
+                    }
+                ),
 ),
 )); ?>

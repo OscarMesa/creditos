@@ -25,6 +25,37 @@ class EstadoClienteController extends Controller {
     }
 
     /**
+     * Este metodo se encarga de retornar los estados que se habilitan para los clientes,
+     * @author Oskar<oscarmesa.elpoli@gmail.com>
+     */
+    public function actionListarEstadosAjax() {
+        $result = array();
+        $_REQUEST['term'] = strtolower($_REQUEST['term']);
+        if ($_REQUEST['estado'] != 0) {
+            $estado = EstadoCliente::model()->find(array(
+                'condition' => 'id = ?',
+                'params' => array(
+                    $_REQUEST['estado']
+                ),
+                'limit' => 1
+            ));
+            echo CJSON::encode(array('id' => $estado->id, 'text' => $estado->descripcion));
+        } else {
+            $estados = EstadoCliente::model()->findAll(array(
+                'condition' => 'LOWER(descripcion) LIKE ?',
+                'params' => array(
+                    '%' . $_REQUEST['term'] . '%'
+                ),
+                'limit' => 10
+            ));
+            foreach ($estados as $estado) {
+                $result[] = array('id' => $estado->id, 'text' => $estado->descripcion);
+            }
+            echo CJSON::encode(array('results' => $result));
+        }
+    }
+
+    /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */

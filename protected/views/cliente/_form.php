@@ -4,13 +4,14 @@
             <div class="box-title">Cliente que realizará el prestamo</div>
         </div>
         <?php
+        $this->renderPartial('application.views.cliente.menuCICL');
         $baseUrl = Yii::app()->baseUrl;
         $cs = Yii::app()->getClientScript();
 
         $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/input-mask/jquery.inputmask.js', CClientScript::POS_END);
         $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/input-mask/jquery.inputmask.date.extensions.js', CClientScript::POS_END);
         $cs->registerScriptFile($baseUrl . '/themes/credito/plugins/input-mask/jquery.inputmask.extensions.js', CClientScript::POS_END);
-        $cs->registerScript('input-mask',''
+        $cs->registerScript('input-mask', ''
                 . '$("[data-mask]").inputmask();'
                 . '');
         $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
@@ -42,7 +43,7 @@
                         <div class="input-group-addon">
                             <i class="fa fa-phone"></i>
                         </div>
-                        <?php echo $form->textField($model, 'telefono', array('class' => 'form-control', 'maxlength' => 30, 'data-inputmask'=>"'mask': ['999-99-99']", 'data-mask' => '')); ?>
+                        <?php echo $form->textField($model, 'telefono', array('class' => 'form-control', 'maxlength' => 30, 'data-inputmask' => "'mask': ['999-99-99']", 'data-mask' => '')); ?>
                     </div>
                 </div>
                 <div class="form-group">
@@ -63,7 +64,7 @@
                 </div>
                 <div class="form-group">
                     <div class="checkbox">
-                        <?php echo $form->checkBoxRow($model, 'solo_codeudor', array('disabled' => 'disabled')); ?>
+                        <?php echo $form->checkBoxRow($model, 'solo_codeudor', array()); ?>
                     </div>
                 </div>
                 <div class="form-group sl2">
@@ -82,7 +83,7 @@
                             'placeholder' => 'Selecione el fondo de pensión del cliente',
                             //'minimumInputLength' => 4, 
                             'ajax' => array(
-                                'url' => Yii::app()->createUrl('pensiones/listarPensionesAjax'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
+                                'url' => Yii::app()->createUrl('estadoCliente/listarEstadosAjax'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
                                 'dataType' => 'json',
                                 'type' => 'GET',
                                 // 'quietMillis'=> 100,
@@ -91,7 +92,7 @@
                                         term: text, 
                                         page_limit: 10,
                                         page: page,
-                                        cliente:' . ($model->estado_cliente != null ? $model->estado_cliente : 0) . '
+                                        estado:' . ($model->estado_cliente != null ? $model->estado_cliente : 0) . '
                                     };
                                 }',
                                 'results' => 'js:function(data,page) { var more = (page * 10) < data.total; return {results: data.results, more:more };
@@ -104,6 +105,12 @@
                               }',
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
+                            'initSelection' => 'js: function (element, callback) {
+                                return $.getJSON("' . Yii::app()->createUrl('estadoCliente/listarEstadosAjax') . '", {term:"",estado:' . ($model->estado_cliente != null ? $model->estado_cliente : 0) . '}, function (data) {
+                                    return callback(data);
+
+                                });
+                                }'
                         ),
                     ));
                     ?>
@@ -146,6 +153,12 @@
                               }',
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
+                            'initSelection' => 'js: function (element, callback) {
+                                return $.getJSON("' . Yii::app()->createUrl('pensiones/listarPensionesAjax') . '", {term:"",pension:' . ($model->pension != null ? $model->pension : 0) . '}, function (data) {
+                                    return callback(data);
+
+                                });
+                                }'
                         ),
                     ));
                     ?>
@@ -188,6 +201,12 @@
                               }',
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
+                            'initSelection' => 'js: function (element, callback) {
+                                return $.getJSON("' . Yii::app()->createUrl('tipoVinculacionEps/listarTpVincEPSAjax') . '", {term:"",tpv:' . ($model->tp_vinculacion_eps != null ? $model->tp_vinculacion_eps : 0) . '}, function (data) {
+                                    return callback(data);
+
+                                });
+                                }'
                         ),
                     ));
                     ?>
@@ -231,6 +250,12 @@
                               }',
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
+                            'initSelection' => 'js: function (element, callback) {
+                                return $.getJSON("' . Yii::app()->createUrl('Eps/listarEpsAjax') . '", {term:"",eps:' . ($model->eps != null ? $model->eps : 'NULL') . '}, function (data) {
+                                    return callback(data);
+
+                                });
+                                }'
                         ),
                     ));
                     ?>

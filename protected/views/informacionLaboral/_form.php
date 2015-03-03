@@ -4,6 +4,7 @@
             <div class="box-title">Información laboral del cliente</div>
         </div>
         <?php
+        $this->renderPartial('application.views.cliente.menuCICL');
         $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
             'id' => 'informacion-laboral-form',
             'enableAjaxValidation' => false,
@@ -51,6 +52,12 @@
                               }',
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
+                            'initSelection' => 'js: function (element, callback) {
+                                return $.getJSON("' . Yii::app()->createUrl('cliente/listarClientesAjax') . '", {term:"",cliente:' . ($model->cliente != null ? $model->cliente : "NULL") . '}, function (data) {
+                                    return callback(data);
+
+                                });
+                            }'
                         ),
                     ));
                     ?>
@@ -85,7 +92,7 @@
                             'placeholder' => 'Selecione el cargo',
                             //'minimumInputLength' => 4, 
                             'ajax' => array(
-                                'url' => Yii::app()->createUrl('Cargos/listarCargos'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
+                                'url' => Yii::app()->createUrl('cargos/listarCargosAjax'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
                                 'dataType' => 'json',
                                 'type' => 'GET',
                                 // 'quietMillis'=> 100,
@@ -106,6 +113,12 @@
                               }',
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
+                            'initSelection' => 'js: function (element, callback) {
+                                return $.getJSON("' . Yii::app()->createUrl('cargos/listarCargosAjax') . '", {term:"",cargo:' . ($model->cargo != null ? $model->cargo : "NULL") . '}, function (data) {
+                                    return callback(data);
+
+                                });
+                            }'
                         ),
                     ));
                     ?>
@@ -126,13 +139,13 @@
                         'selector' => '#InformacionLaboral_contrato',
                         'model' => $model,
                         'attribute' => 'contrato',
-                        'data' => array(),
+                        'data' => array('vinc' => 'Viculado'),
                         'options' => array(
                             'allowClear' => true,
                             'placeholder' => 'Selecione el cargo',
                             //'minimumInputLength' => 4, 
                             'ajax' => array(
-                                'url' => Yii::app()->createUrl('Cargos/listarContratos'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
+                                'url' => Yii::app()->createUrl('cliente/listarContratos'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
                                 'dataType' => 'json',
                                 'type' => 'GET',
                                 // 'quietMillis'=> 100,
@@ -153,6 +166,12 @@
                               }',
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
+                            'initSelection' => 'js: function (element, callback) {
+                                return $.getJSON("' . Yii::app()->createUrl('cliente/listarContratos') . '", {term:"",contrato:' . ($model->contrato != null ? $model->contrato : 0) . '}, function (data) {
+                                    return callback(data);
+
+                                });
+                            }'
                         ),
                     ));
                     ?>

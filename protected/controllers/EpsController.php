@@ -16,17 +16,42 @@ class EpsController extends Controller {
     }
 
     /**
+     * este metodo se encarga de retornar las EPS's que se registraron. 
+     * @author Oskar<oscarmesa.elpoli@gmail.com>
+     */
+    public function actionListarEpsAjax() {
+        $result = array();
+        $_REQUEST['term'] = strtolower($_REQUEST['term']);
+        if ($_REQUEST['eps'] != NULL) {
+            $EPS = Eps::model()->find(array(
+                'condition' => 'id = ?',
+                'params' => array(
+                    $_REQUEST['eps']
+                )
+            ));
+            echo CJSON::encode(array('id' => $EPS->id, 'text' => $EPS->descripcion));
+        } else {
+            $EPSs = Eps::model()->findAll(array(
+                'condition' => 'LOWER(descripcion) LIKE ?',
+                'params' => array(
+                    '%' . $_REQUEST['term'] . '%'
+                ),
+                'limit' => 10
+            ));
+            foreach ($EPSs as $EPS) {
+                $result[] = array('id' => $EPS->id, 'text' => $EPS->descripcion);
+            }
+            echo CJSON::encode(array('results' => $result));
+        }
+    }
+
+    /**
      * Specifies the access control rules.
      * This method is used by the 'accessControl' filter.
      * @return array access control rules
      */
     public function accessRules() {
         return array();
-    }
-    
-    public function actionListarEpsAjax()
-    {
-        
     }
 
     /**

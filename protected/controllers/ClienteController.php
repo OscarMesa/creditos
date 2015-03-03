@@ -95,6 +95,76 @@ class ClienteController extends Controller {
     }
 
     /**
+     * metodo que carga la vista donde se va a aprobar a el cliente
+     * @author Oskar<oscarmesa.elpoli@gmail.com>
+     */
+    public function actionAprobacionCliente($id) {
+        $modelo = $this->loadModel($id);
+        $this->titlePage = "Aprobación del usuario #" . $modelo->cedula;
+        $this->render('aprobacionCliente', array(
+            'model' => $modelo
+        ));
+    }
+
+    /**
+     * este metodo se encarga de retornar los contratos que existen
+     * @author Oskar<oscarmesa.elpoli@gmail.com>
+     */
+    public function actionListarContratos() {
+        $result = array();
+        $result[] = array('id' => TP_CONTRATO_TEMPORAL, 'text' => "Temporal");
+        $result[] = array('id' => TP_CONTRATO_VINCULADO, 'text' => "Vinculado");
+        $input = $_REQUEST['term'];
+        $r = array();
+        if($input != ""){
+        $result = array_filter($result, function ($item) use ($input) {
+            if (stripos($item["text"],$input) !== false) {
+                return true;
+            }
+            return false;
+        });
+        foreach ($result as $p) {
+            $r[] = $p;
+        }
+        }else{
+            $r = $result;
+        }
+
+//        var_dump($result);
+        echo CJSON::encode(array('results' => $r));
+    }
+
+    /**
+     * Este metodo lista los clientes.
+     * @author Oskar<oscarmesa.elpoli@gmail.com>
+     */
+    public function actionListarClientesAjax() {
+        $result = array();
+        $_REQUEST['term'] = strtolower($_REQUEST['term']);
+        if ($_REQUEST['cliente'] != NULL) {
+            $cliente = Cliente::model()->find(array(
+                'condition' => 'cedula = ?',
+                'params' => array(
+                    $_REQUEST['cliente']
+                )
+            ));
+            echo CJSON::encode(array('id' => $cliente->cedula, 'text' => $cliente->nombres . " " . $cliente->apellidos));
+        } else {
+            $clientes = Vcliente::model()->findAll(array(
+                'condition' => 'LOWER(nombre_completo) LIKE ?',
+                'params' => array(
+                    '%' . $_REQUEST['term'] . '%'
+                ),
+                'limit' => 10
+            ));
+            foreach ($clientes as $cliente) {
+                $result[] = array('id' => $cliente->cedula, 'text' => $cliente->nombre_completo);
+            }
+            echo CJSON::encode(array('results' => $result));
+        }
+    }
+
+    /**
      * Lists all models.
      */
     public function actionIndex() {

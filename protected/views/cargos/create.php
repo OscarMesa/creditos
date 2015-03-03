@@ -10,6 +10,6 @@ array('label'=>'Manage Cargos','url'=>array('admin')),
 );
 ?>
 
-<h1>Create Cargos</h1>
+<?php $this->titlePage = "Crear Cargo"; ?>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

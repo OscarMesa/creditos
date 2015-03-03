@@ -108,6 +108,7 @@ class TipoReferenciaController extends Controller {
      * Manages all models.
      */
     public function actionAdmin() {
+        $this->titlePage = "Tipos de referencias";
         $model = new TipoReferencia('search');
         $model->unsetAttributes();  // clear any default values
         if (isset($_GET['TipoReferencia']))

@@ -207,7 +207,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?php echo Yii::app()->getBaseUrl(true);?>/themes/credito/dist/img/default_profile.jpg" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Alexander Pierce</span>
+                        <span class="hidden-xs"><?php echo Yii::app()->user->um->getFieldValue(Yii::app()->user->um->loadUserById(Yii::app()->user->id,true),"nombreCompleto"); ?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->

@@ -13,6 +13,6 @@ $this->breadcrumbs=array(
 	);
 	?>
 
-	<h1>Update Cliente <?php echo $model->cedula; ?></h1>
+	<?php $this->titlePage= "Actualizar cliente ".$model->cedula; ?>
 
 <?php echo $this->renderPartial('_form',array('model'=>$model)); ?>

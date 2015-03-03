@@ -24,8 +24,34 @@ class TipoVinculacionEpsController extends Controller {
         return array();
     }
 
+    /**
+     * este metodo se encarga de retornar los tipos de vinculaciones que puede tener un cliente con una EPS. 
+     * @author Oskar<oscarmesa.elpoli@gmail.com>
+     */
     public function actionListarTpVincEPSAjax() {
-        
+        $result = array();
+        $_REQUEST['term'] = strtolower($_REQUEST['term']);
+        if ($_REQUEST['tpv'] != NULL) {
+            $tpVinculacionEPS = TipoVinculacionEps::model()->find(array(
+                'condition' => 'id =  ?',
+                'params' => array(
+                    $_REQUEST['tpv']
+                )
+            ));
+            echo CJSON::encode(array('id' => $tpVinculacionEPS->id, 'text' => $tpVinculacionEPS->descripcion));
+        } else {
+            $tpVinculacionEPSs = TipoVinculacionEps::model()->findAll(array(
+                'condition' => 'LOWER(descripcion) LIKE ?',
+                'params' => array(
+                    '%' . $_REQUEST['term'] . '%'
+                ),
+                'limit' => 10
+            ));
+            foreach ($tpVinculacionEPSs as $tpVinculacionEPS) {
+                $result[] = array('id' => $tpVinculacionEPS->id, 'text' => $tpVinculacionEPS->descripcion);
+            }
+            echo CJSON::encode(array('results' => $result));
+        }
     }
 
     /**

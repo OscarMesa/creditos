@@ -4,6 +4,7 @@
             <div class="box-title">Codeudor del cliente</div>
         </div>
         <?php
+        $this->renderPartial('application.views.cliente.menuCICL');
         $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
             'id' => 'codeudor-form',
             'enableAjaxValidation' => false,

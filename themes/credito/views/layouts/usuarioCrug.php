@@ -116,12 +116,13 @@
                         Aplicación de créditos
                         <small class="text-muted hidden-xs">Una solución</small>
                     </a>
-                    
+                   <?php if(Yii::app()->user->isGuest){?> 
                     <div class="buttons pull-right">
                         <a class="first hidden-xs" id="login" href="<?php echo Yii::app()->user->ui->loginUrl; ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo CrugeTranslator::t('logon', 'Login');?>"><i class="fa fa-user fa-2x"></i></a>
                         <a class="first hidden-xs" id="login" href="<?php echo Yii::app()->createAbsoluteUrl('cruge/ui/pwdrec'); ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo CrugeTranslator::t('logon', 'Lost Password?');?>"><i class="fa fa-unlock-alt fa-2x"></i></a>
                         <a class="first hidden-xs" id="login" href="<?php echo Yii::app()->createAbsoluteUrl('cruge/ui/registration'); ?>" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="<?php echo CrugeTranslator::t('logon', 'Register');?>"><i class="fa fa-users fa-2x"></i></a>
                     </div>
+                   <?php } ?>
                 </div><!-- /.container -->
             </nav><!--/.navbar-->
         </header>   

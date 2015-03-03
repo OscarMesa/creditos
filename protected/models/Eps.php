@@ -29,6 +29,7 @@ class Eps extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('descripcion', 'length', 'max'=>90),
+                        array('descripcion', 'required'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, descripcion', 'safe', 'on'=>'search'),

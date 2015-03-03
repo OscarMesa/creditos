@@ -8,8 +8,8 @@ $this->menu=array(
 array('label'=>'List Pensiones','url'=>array('index')),
 array('label'=>'Manage Pensiones','url'=>array('admin')),
 );
+$this->titlePage = "Crear entidad pensionaria";
 ?>
 
-<h1>Create Pensiones</h1>
 
 <?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

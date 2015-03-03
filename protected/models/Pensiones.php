@@ -29,6 +29,7 @@ class Pensiones extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('pension', 'length', 'max'=>80),
+                        array('pension', 'required'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, pension', 'safe', 'on'=>'search'),
