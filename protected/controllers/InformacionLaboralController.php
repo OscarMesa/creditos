@@ -1,5 +1,7 @@
 <?php
-
+/**
+ * @author Oskar<oscarmesa.elpoli@gmail.com>
+ */
 class InformacionLaboralController extends Controller {
 
     /**
