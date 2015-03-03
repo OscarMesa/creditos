@@ -31,7 +31,7 @@ class TipoVinculacionEpsController extends Controller {
     public function actionListarTpVincEPSAjax() {
         $result = array();
         $_REQUEST['term'] = strtolower($_REQUEST['term']);
-        if ($_REQUEST['tpv'] != NULL) {
+        if ($_REQUEST['tpv'] != 0) {
             $tpVinculacionEPS = TipoVinculacionEps::model()->find(array(
                 'condition' => 'id =  ?',
                 'params' => array(
