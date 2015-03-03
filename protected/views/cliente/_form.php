@@ -140,7 +140,7 @@
                                         term: text, 
                                         page_limit: 10,
                                         page: page,
-                                        cliente:' . ($model->pension != null ? $model->pension : 0) . '
+                                        pension:' . ($model->pension != null ? $model->pension : 0) . '
                                     };
                                 }',
                                 'results' => 'js:function(data,page) { var more = (page * 10) < data.total; return {results: data.results, more:more };
