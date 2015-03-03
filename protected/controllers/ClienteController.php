@@ -141,7 +141,7 @@ class ClienteController extends Controller {
     public function actionListarClientesAjax() {
         $result = array();
         $_REQUEST['term'] = strtolower($_REQUEST['term']);
-        if ($_REQUEST['cliente'] != NULL) {
+        if ($_REQUEST['cliente'] != 0) {
             $cliente = Cliente::model()->find(array(
                 'condition' => 'cedula = ?',
                 'params' => array(
