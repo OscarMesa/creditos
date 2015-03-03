@@ -31,7 +31,7 @@
                             'placeholder' => 'Selecione el cliente',
                             //'minimumInputLength' => 4, 
                             'ajax' => array(
-                                'url' => Yii::app()->createUrl('Cliente/listarClientesAjax'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
+                                'url' => Yii::app()->createUrl('cliente/listarClientesAjax'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
                                 'dataType' => 'json',
                                 'type' => 'GET',
                                 // 'quietMillis'=> 100,
