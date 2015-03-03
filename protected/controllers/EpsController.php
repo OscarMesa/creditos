@@ -19,7 +19,7 @@ class EpsController extends Controller {
      * este metodo se encarga de retornar las EPS's que se registraron. 
      * @author Oskar<oscarmesa.elpoli@gmail.com>
      */
-    public function actionListarEpsAjax() {
+    public function actionListarepsajax() {
         $result = array();
         $_REQUEST['term'] = strtolower($_REQUEST['term']);
         if ($_REQUEST['eps'] != NULL) {

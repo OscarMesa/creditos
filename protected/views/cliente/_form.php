@@ -228,7 +228,7 @@
                             'placeholder' => 'Selecione la eps del cliente',
                             //'minimumInputLength' => 4, 
                             'ajax' => array(
-                                'url' => Yii::app()->createUrl('Eps/listarEpsAjax'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
+                                'url' => Yii::app()->createUrl('eps/listarepsajax'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
                                 'dataType' => 'json',
                                 'type' => 'GET',
                                 // 'quietMillis'=> 100,
