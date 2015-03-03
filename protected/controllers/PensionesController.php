@@ -38,7 +38,7 @@ class PensionesController extends Controller {
      * este metodo se encarga de retornar las pensiones que se registraron. 
      * @author Oskar<oscarmesa.elpoli@gmail.com>
      */
-    public function actionListarPensionesAjax() {
+    public function actionListarpensionesajax() {
         $result = array();
         $_REQUEST['term'] = strtolower($_REQUEST['term']);
         if ($_REQUEST['pension'] != 0) {

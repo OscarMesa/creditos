@@ -131,7 +131,7 @@
                             'placeholder' => 'Selecione el fondo de pensión del cliente',
                             //'minimumInputLength' => 4, 
                             'ajax' => array(
-                                'url' => Yii::app()->createUrl('pensiones/listarPensionesAjax'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
+                                'url' => Yii::app()->createUrl('pensiones/listarpensionesajax'), // Yii::app()->createUrl('Dpeticion/ListarCiudadanos'),
                                 'dataType' => 'json',
                                 'type' => 'GET',
                                 // 'quietMillis'=> 100,
@@ -154,7 +154,7 @@
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
                             'initSelection' => 'js: function (element, callback) {
-                                return $.getJSON("' . Yii::app()->createUrl('pensiones/listarPensionesAjax') . '", {term:"",pension:' . ($model->pension != null ? $model->pension : 0) . '}, function (data) {
+                                return $.getJSON("' . Yii::app()->createUrl('pensiones/listarpensionesajax') . '", {term:"",pension:' . ($model->pension != null ? $model->pension : 0) . '}, function (data) {
                                     return callback(data);
 
                                 });
