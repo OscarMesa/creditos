@@ -22,7 +22,7 @@ class EpsController extends Controller {
     public function actionListarepsajax() {
         $result = array();
         $_REQUEST['term'] = strtolower($_REQUEST['term']);
-        if ($_REQUEST['eps'] != NULL) {
+        if ($_REQUEST['eps'] != 0) {
             $EPS = Eps::model()->find(array(
                 'condition' => 'id = ?',
                 'params' => array(

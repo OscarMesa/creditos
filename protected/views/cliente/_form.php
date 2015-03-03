@@ -251,7 +251,7 @@
                                 'formatNoMatches' => 'js: function (data) { return "No matches found"; }',
                             ),
                             'initSelection' => 'js: function (element, callback) {
-                                return $.getJSON("' . Yii::app()->createUrl('Eps/listarEpsAjax') . '", {term:"",eps:' . ($model->eps != null ? $model->eps : 'NULL') . '}, function (data) {
+                                return $.getJSON("' . Yii::app()->createUrl('Eps/listarEpsAjax') . '", {term:"",eps:' . ($model->eps != null ? $model->eps : 0) . '}, function (data) {
                                     return callback(data);
 
                                 });
