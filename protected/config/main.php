@@ -185,7 +185,7 @@ return array(
                 'username' => 'soporte@openetwork.co',
                 'password' => 'RyfLy1yZ',
                 'port' => '25',
-                'encryption' => 'ssl',
+//                'encryption' => '',
             ),
             'viewPath' => 'application.views.mail',
             'logging' => true,

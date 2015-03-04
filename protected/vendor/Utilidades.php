@@ -12,7 +12,7 @@
  * @author omesagar
  */
 class Utilidades {
-    public static $mail = "poliaulink@gmail.com";
+    public static $mail = "soporte@openetwork.co";
     
     /**
      * 
