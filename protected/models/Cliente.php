@@ -73,7 +73,7 @@ class Cliente extends CActiveRecord
 			'eps0' => array(self::BELONGS_TO, 'Eps', 'eps'),
 			'tpVinculacionEps' => array(self::BELONGS_TO, 'TipoVinculacionEps', 'tp_vinculacion_eps'),
 			'pension0' => array(self::BELONGS_TO, 'Pensiones', 'pension'),
-			'informacionLaborals' => array(self::HAS_MANY, 'InformacionLaboral', 'cliente'),
+			'informacionLaborals' => array(self::HAS_ONE, 'InformacionLaboral', 'cliente'),
 			'codeudors' => array(self::HAS_MANY, 'Codeudor', 'cedula_cliente'),
 			'codeudors1' => array(self::HAS_MANY, 'Codeudor', 'cedula_codeudor'),
 		);
@@ -135,8 +135,34 @@ class Cliente extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+        
+        /**
+         * Este metodo se encarga de buscar las referencias de un usuario.
+         * @author Oskar<oscarmesa.elpoli@gmial.com>
+         */
+        public function buscarReferencias()
+        {
+            $criteria=new CDbCriteria;
 
-	/**
+		$criteria->compare('cedula',$this->cedula,true);
+		$criteria->compare('nombres',$this->nombres,true);
+		$criteria->compare('apellidos',$this->apellidos,true);
+		$criteria->compare('telefono',$this->telefono,true);
+		$criteria->compare('correo',$this->correo,true);
+		$criteria->compare('celular',$this->celular,true);
+		$criteria->compare('direccion',$this->direccion,true);
+		$criteria->compare('solo_codeudor',$this->solo_codeudor);
+		$criteria->compare('estado_cliente',$this->estado_cliente,true);
+		$criteria->compare('pension',$this->pension,true);
+		$criteria->compare('tp_vinculacion_eps',$this->tp_vinculacion_eps,true);
+		$criteria->compare('eps',$this->eps,true);
+
+		return new CActiveDataProvider($this, array(
+			'criteria'=>$criteria,
+		));
+        }
+
+        /**
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.

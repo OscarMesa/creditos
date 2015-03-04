@@ -22,16 +22,26 @@ array('label'=>'Manage InformacionLaboral','url'=>array('admin')),
                 array(
                     'name' => 'cliente',
                     'value' => function($data){
-                        return $data->cliente->nombre_completo;
+                        return $data->vcliente->nombre_completo;
                     }
                 ),
 		'direccion',
 		'telefono',
 		'celular',
-		'cargo',
+                array(
+                    'name' => 'cargo',
+                    'value' => function($data){
+                        return $data->cargo0->descripcion;
+                    }
+                ),
 		'salario',
 		'tiempo_laborado',
-		'contrato',
+                array(
+                    'name' => 'contrato',
+                    'value' => function($data){
+                        return $data->contrato == TP_CONTRATO_VINCULADO ? 'Vinculado':'Temporal';
+                    }
+                ),        
 		'nombre_compania',
 ),
 )); ?>

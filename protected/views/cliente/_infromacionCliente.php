@@ -46,7 +46,36 @@
             <b><?php echo CHtml::encode($model->informacionLaborals->getAttributeLabel('nombre_compania')); ?>: </b>
             <?php echo CHtml::encode($model->informacionLaborals->nombre_compania); ?>
         </div>
+        <div class="form-group">
+            <b><?php echo CHtml::encode($model->informacionLaborals->getAttributeLabel('telefono')); ?>: </b>
+            <?php echo CHtml::encode($model->informacionLaborals->telefono); ?>
+        </div>
+        <div class="form-group">
+            <b><?php echo CHtml::encode($model->informacionLaborals->cargo0->getAttributeLabel('descripcion')); ?>: </b>
+            <?php echo CHtml::encode($model->informacionLaborals->cargo0->descripcion); ?>
+        </div>
+        <div class="form-group">
+            <b><?php echo CHtml::encode($model->informacionLaborals->getAttributeLabel('tiempo_laborado')); ?>: </b>
+            <?php echo CHtml::encode($model->informacionLaborals->tiempo_laborado); ?>
+        </div>
     </article>
-    <article class="col-xs-6">bloque 2</article>
+    <article class="col-xs-6">
+        <div class="form-group">
+            <b><?php echo CHtml::encode($model->informacionLaborals->getAttributeLabel('direccion')); ?>: </b>
+            <?php echo CHtml::encode($model->informacionLaborals->direccion); ?>
+        </div>
+        <div class="form-group">
+            <b><?php echo CHtml::encode($model->informacionLaborals->getAttributeLabel('celular')); ?>: </b>
+            <?php echo CHtml::encode($model->informacionLaborals->celular); ?>
+        </div>
+        <div class="form-group">
+            <b><?php echo CHtml::encode($model->informacionLaborals->getAttributeLabel('salario')); ?>: </b>
+            <?php echo number_format(CHtml::encode($model->informacionLaborals->salario),0,',','.'); ?>
+        </div>
+        <div class="form-group">
+            <b><?php // echo CHtml::encode($model->informacionLaborals->getAttributeLabel('contrato')); ?> </b>
+            <?php echo CHtml::radioButtonList('contrato', $model->informacionLaborals->contrato, array(TP_CONTRATO_TEMPORAL=>'Temporal',TP_CONTRATO_VINCULADO=>'Vinculado')); ?>
+        </div>
+    </article>
 </section>
 <?php } ?>

@@ -57,7 +57,7 @@ class InformacionLaboral extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'cliente0' => array(self::BELONGS_TO, 'Cliente', 'cliente'),
-			'cliente' => array(self::BELONGS_TO, 'Vcliente', 'cliente'),
+			'vcliente' => array(self::BELONGS_TO, 'Vcliente', 'cliente'),
 			'cargo0' => array(self::BELONGS_TO, 'Cargos', 'cargo'),
 		);
 	}
